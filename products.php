@@ -76,7 +76,6 @@ if($ins_cat){
                             <a href="product_add.php" class="btn btn-primary btn-sm ">Add
                                 New
                                 </a>
-
                         </div>
                     </div>
                 </div>
@@ -89,8 +88,9 @@ if($ins_cat){
                                     <th>SNO</th>
                                     
                                     <th>Product Name</th>
-                                    <th>Product MRP Price</th>
-                                    <th>Product Sale Price</th>
+                                    <th>MRP Price</th>
+                                    <th>Sale Price</th>
+                                    <th>Upload Image</th>
                                                                         
                                     <th>Action</th>
                                     
@@ -100,8 +100,11 @@ if($ins_cat){
                                 <tr>
                                 <th>SNO</th>
                                
-                                   <th>Product MRP Price</th>
-                                    <th>Product Sale Price</th>
+                                    <th>Product Name</th>
+                                    <th>MRP Price</th>
+                                    <th>Sale Price</th>
+                                    <th>Upload Image</th>
+
                                     <th>Action</th>
                                     
                                 </tr>
@@ -112,18 +115,17 @@ if($ins_cat){
                                 $s =1;
                                 $getcat = mysqli_query($conn,"SELECT * FROM `products`");
                                 while($get = mysqli_fetch_assoc($getcat)){      
-                                    $mg =   $get['product_image'];                       
+                                                       
                                 ?>
                                 <tr>
                                     <td><?= $s?></td>                                   
                                     <td><?= $get['product_name']?></td>
                                     <td><?= $get['product_mrp_price']?></td>
                                     <td><?= $get['product_sale_price']?></td>
-                                    <!-- <td>                                        
-                                        <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($mg) .'" style="width:100px;"/> '; ?>
-                                   </td> -->
+                                    <td><a class="btn btn-info btn-sm" href="image_upload_view.php?id=<?= $get['product_id']?>">Upload</a></td>
+                                    
                                     <td>
-                                         <a href="product_view.php?id=<?= $get['product_id']?>&& type=edit" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a> 
+                                         <a href="product_view.php?id=<?= $get['product_id']?>&& type=view" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a> 
                                         <a href="product_edit.php?id=<?= $get['product_id']?>&& type=edit" class="btn btn-sm btn-success"><i class="fa fa-pen"></i></a> 
                                          <a href="product_edit.php?id=<?= $get['product_id']?>&&type=delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
                                     

@@ -44,6 +44,7 @@
             <a class="collapse-item" href="sub_categories.php">All Sub Categories</a>
             <a class="collapse-item" href="brands.php">All Brands</a>
             <a class="collapse-item" href="banner.php">All Banners</a>
+            <a class="collapse-item" href="sidebanner.php">Side banner</a>
         </div>
     </div>
 </li>
@@ -83,20 +84,19 @@
     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Login Screens:</h6> -->
-            <a class="collapse-item" href="products.php">Add New Products</a>
-            <a class="collapse-item" href="products.php">All Products</a>                      
+            <a class="collapse-item" href="products.php">View All Products</a>                   
         </div>
     </div>
 </li>
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-        aria-expanded="true" aria-controls="collapsePages">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesorders"
+        aria-expanded="true" aria-controls="collapsePagesorders">
         <i class="fas fa-fw fa-folder"></i>
         <span>Orders</span>
     </a>
-    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+    <div id="collapsePagesorders" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Login Screens:</h6> -->
             <a class="collapse-item" href="">All Orders</a>

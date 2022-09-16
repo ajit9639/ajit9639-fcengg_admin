@@ -9,21 +9,36 @@ if(!isset($_SESSION['admin'])){
 }
 
 $getid = $_GET['id'];
+$type = $_GET['type'];
+// data delete
+if($getid != "" AND $type == "delete"){
+    $query = mysqli_query($conn , "delete from `products` WHERE `product_id`='$getid'");
+    if($query){
+        echo "<script>location.replace('products.php');</script>";
+    }
+}
+
+
 $success="";
 $unsuccess="";
 if(isset($_POST['send'])){
+
     $product_name = $_POST['product_name'];
     $product_sale_price = $_POST['product_sale_price'];
     $product_mrp_price = $_POST['product_mrp_price'];
     $product_description = $_POST['product_description'];
     $product_specification = $_POST['product_specification'];
 
-    $product_img = $_FILES["product_image"];  
-    $product_img_name = $product_img['name'];
-    $product_img_tmp_name = $product_img['tmp_name'];
-    $product_data = addslashes(file_get_contents($product_img_tmp_name));   
+    // $product_img = $_FILES["product_image"];  
+    // $product_img_name = $product_img['name'];
+    // $product_img_tmp_name = $product_img['tmp_name'];
+   
 
-$ins_cat = mysqli_query($conn,"INSERT INTO `products`(`product_name`, `product_mrp_price`,`product_sale_price`, `product_description`, `product_specification`, `product_image`) VALUES ('$product_name','$product_mrp_price','$product_sale_price','$product_description','$product_specification','$product_data')");
+  
+    $ins_cat = mysqli_query($conn,"UPDATE `products` SET `product_name`='$product_name',`product_mrp_price`='$product_mrp_price',`product_sale_price`='$product_sale_price',`product_description`='$product_description',`product_specification`='$product_specification'");
+         
+   
+
 if($ins_cat){
     $success='<div class="alert alert-primary" role="alert">
     Success
@@ -100,22 +115,7 @@ $getall_detail = mysqli_fetch_assoc(mysqli_query($conn , "SELECT * FROM `product
                                         
                             
 
-                            <div class="form-group col-sm-3">
-                                <label class=" control-label">Product Image</label>
-                                <div>
-                                    <input type="file" class="form-control input-md"  name="product_image" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-sm-3">
-                                <!-- <label class=" control-label">Product Image</label> -->
-                                <div>
-                                <?php 
-                                 $mg = $getall_detail['product_image'];   
-                                echo '<img src="data:image/jpeg;base64,'.base64_encode($mg) .'" style="width:100px;"/> '; ?>
-                                </div>
-                            </div>                                                        
-
+                                                                                 
 
 
                             <div class="form-group col-sm-12">
