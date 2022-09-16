@@ -1030,6 +1030,9 @@ textarea:-ms-input-placeholder {
 /*header top css here*/
 
 .header_top {
+    
+    color: #fff;
+    background: #c40316;
     border-bottom: 1px solid #ebebeb;
 }
 
@@ -1173,7 +1176,7 @@ textarea:-ms-input-placeholder {
 }
 
 .header_top_settings ul li a:hover {
-    color: #c40316;
+    color: #000000;
 }
 
 
@@ -1195,7 +1198,7 @@ textarea:-ms-input-placeholder {
 }
 
 .header_middle {
-    padding: 27px 0;
+    /* padding: 27px 0; */
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
